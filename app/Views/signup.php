@@ -18,25 +18,25 @@
         background: white;
     }
 
-    .login-container {
+    .signup-container {
         width: 400px;
         background-color: white;
         padding: 30px;
-        margin: 100px auto;
+        margin: 40px auto;
     }
 
-    .login-container h1 {
+    .signup-container h1 {
         font-size: 3rem;
         text-align: center;
     }
 
-    .login-container form {
+    .signup-container form {
         display: flex;
         flex-direction: column;
         margin-top: 20px;
     }
 
-    .login-container input {
+    .signup-container input {
         margin-bottom: 15px;
         padding: 15px 20px;
         border: 1px solid #ccc;
@@ -46,7 +46,7 @@
         font-family: "Lexend", sans-serif;
     }
 
-    .login-container button {
+    .signup-container button {
         display: inline-block;
         padding: 10px 30px;
         margin-top: 10px;
@@ -61,42 +61,45 @@
         border: none;
     }
 
-    .login-container button:hover {
+    .signup-container button:hover {
         background-color: #ef436b;
     }
 
-    .login-container p {
+    .signup-container p {
         text-align: center;
         font-weight: 300;
         margin-top: 25px;
     }
 
-    .login-container p a {
+    .signup-container p a {
         color: black;
         text-decoration: none;
         font-weight: 500;
         transition: color 0.3s;
     }
 
-    .login-container p a:hover {
+    .signup-container p a:hover {
         color: #ef436b;
     }
 
 </style>
 
-<div class="login-container">
-    <h1>Log In</h1>
+<div class="signup-container">
+    <h1>Sign Up</h1>
 
-    <?php if (isset($error)): ?>
-        <p style="color: red;"><?= $error ?></p>
+    <?php if (isset($validation)): ?>
+        <div style="color: red; text-align: center; margin-bottom: 15px;">
+            <?= $validation->listErrors(); ?>
+        </div>
     <?php endif; ?>
 
-    <form action="/login/process" method="POST">
-        <?= csrf_field() ?>
+    <form action="/signup/process" method="POST">
+        <input type="text" name="full_name" placeholder="Full Name" required>
         <input type="email" name="email" placeholder="Email Address" required>
         <input type="password" name="password" placeholder="Password" required>
-        <button type="submit">Log In</button>
+        <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+        <button type="submit">Create Account</button>
     </form>
-    
-    <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+
+    <p>Already have an account? <a href="/login">Sign In</a></p>
 </div>

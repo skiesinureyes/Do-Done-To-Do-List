@@ -262,6 +262,9 @@ class Security implements SecurityInterface
             throw SecurityException::forDisallowedAction();
         }
 
+        log_message('debug', 'CSRF Token in Request: ' . $requestToken);
+        log_message('debug', 'CSRF Token in Session: ' . $sessionToken);
+
         $this->removeTokenInRequest($request);
 
         if ($this->config->regenerate) {

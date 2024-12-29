@@ -1,3 +1,17 @@
-        <p>Copyright 2024. Syakira Fildza Nazhifan</p>
-    </body>
+<style>
+    .footer {
+        background-color: white;
+        padding: 5px 10px;
+    }
+
+    .footer p {
+        text-align: center;
+        font-weight: 300;
+    }
+
+</style>
+<div class="footer">
+    <p>Copyright &copy; <?php echo date('Y'); ?> Syakira Fildza Nazhifan. All Rights Reserved.</p>
+</div>
+</body>
 </html>
