@@ -9,7 +9,7 @@ class Login extends Model
         $db = \Config\Database::connect();
         
         $query = $db->query(
-            'SELECT email, password, full_name FROM users WHERE email = ?',
+            'SELECT id, email, password, full_name FROM users WHERE email = ?',
             [$email]
         );
     

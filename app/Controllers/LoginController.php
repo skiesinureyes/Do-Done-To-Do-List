@@ -19,19 +19,26 @@ class LoginController extends BaseController
 
         if ($user && password_verify($password, $user->password)) {
             session()->set([
+                'user_id' => $user->id, 
                 'user_email' => $email,
                 'full_name' => $user->full_name,
                 'logged_in' => true,
             ]);
+
+            if (!session()->get('user_id')) {
+                die('Session user_id not set after login.');
+            }
 
             return redirect()->to('/todo');
         } 
         
         else {
             session()->setFlashdata('error', 'Invalid email or password');
-            echo session()->getFlashdata('error');
             return redirect()->to('/login');
         }
+
+        var_dump(session()->get()); // Debugging
+        die();
     }
 
     public function logout()
