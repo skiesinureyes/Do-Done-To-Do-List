@@ -20,7 +20,7 @@
 
     .header {
         text-align: center;
-        padding: 200px 20px;
+        padding: 150px 20px;
     }
 
     .header h1 {
@@ -91,7 +91,7 @@
     <p>Do The Work, Done The Right Way</p>
     <a href="/signup" class="cta-button">Get Started</a>
 </div>
-<div class="features-title">
+<!-- <div class="features-title">
     <h1>Why Do&Done?</h1>
 </div>
 <div class="features">
@@ -108,4 +108,4 @@
         <h3>Track Progress</h3>
         <p>Stay motivated with visual progress tracking tools.</p>
     </div>
-</div>
+</div> -->

@@ -97,11 +97,11 @@
         </div>
         
         <?php else: ?>
-        <div class="menu">
+        <!-- <div class="menu">
             <a href="/" class="active">Home</a>
             <a href="/features">Features</a>
             <a href="/about">About</a>
-        </div>
+        </div> -->
 
         <div class="menu-2">
             <a href="/login" class="sign-in-navbar">Log In</a>
