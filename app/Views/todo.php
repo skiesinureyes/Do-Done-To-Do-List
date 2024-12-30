@@ -94,24 +94,14 @@
         background-color: #ef436b;
     }
 
-    .btn {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 300px;
-    cursor: pointer;
-    }
-
-    .btn-edit {
-        background-color: #007bff;
-        color: white;
-    }
-
     .btn-delete {
+        padding: 5px 10px;
         background-color: #dc3545;
         color: white;
+        text-decoration: none;
+        border-radius: 20px;
+        font-weight: 300px;
+        cursor: pointer;
     }
 
     /* Overlay Styles */
@@ -282,7 +272,7 @@
                 <th>Status</th>
                 <th>Additional Notes</th>
                 <th>Completed</th>
-                <th>Actions</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody id="todo-body">
@@ -301,7 +291,6 @@
                             <input type="checkbox" class="mark-completed" data-id="<?= $task['id'] ?>" <?= $task['completed'] ? 'checked' : '' ?>>
                         </td>
                         <td>
-                            <a href="/todo/edit/<?= $task['id'] ?>" class="btn-edit">Edit</a>
                             <a href="/todo/delete/<?= $task['id'] ?>" class="btn-delete" onclick="return confirm('Are you sure you want to delete this task?');">Delete</a>
                         </td>
                     </tr>
@@ -411,7 +400,6 @@
                                     <input type="checkbox" class="mark-completed" data-id="${task.id}" ${task.completed === 1 ? 'checked' : ''}>
                                 </td>
                                 <td>
-                                    <a href="/todo/edit/${task.id}" class="btn-edit">Edit</a> | 
                                     <a href="/todo/delete/${task.id}" class="btn-delete" onclick="return confirm('Are you sure?')">Delete</a>
                                 </td>
                             </tr>
@@ -457,14 +445,14 @@
                         console.log('Row:', row);
 
                         if (data.completed) {
-                            row.style.backgroundColor = '#cbf5dd';
-                            row.querySelector('.btn-delete').style.display = 'inline'; // Show delete button
-                            row.querySelector('.btn-edit').style.display = 'none'; // Hide edit button
+                            row.querySelectorAll('td').forEach(td => {
+                                td.style.backgroundColor = '#aaf0c9';
+                            });
                         } 
                         else {
-                            row.style.backgroundColor = '';
-                            row.querySelector('.btn-delete').style.display = 'none'; // Hide delete button
-                            row.querySelector('.btn-edit').style.display = 'inline'; // Show edit button
+                            row.querySelectorAll('td').forEach(td => {
+                                td.style.backgroundColor = '';
+                            });
                         }
 
                         console.log('Row classes after toggle:', row.classList);
